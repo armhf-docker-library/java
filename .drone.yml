@@ -6,7 +6,7 @@ publish:
     username: $$DOCKER_USER
     email: $$DOCKER_EMAIL
     password: $$DOCKER_PASSWORD
-    repo: armhfbuild/elasticsearch
+    repo: armhfbuild/java
     tag:
       - "latest"
       - "openjdk-8-jre-8u66"
