@@ -1,4 +1,4 @@
-ROM resin/armv7hf-buildpack-deps:jessie-curl
+FROM resin/armv7hf-buildpack-deps:jessie-curl
 
 # A few problems with compiling Java from source:
 #  1. Oracle.  Licensing prevents us from redistributing the official JDK.
@@ -13,7 +13,7 @@ RUN echo 'deb http://httpredir.debian.org/debian jessie-backports main' > /etc/a
 ENV LANG C.UTF-8
 
 ENV JAVA_VERSION 8u66
-ENV JAVA_DEBIAN_VERSION 8u66-b01-1~bpo8+1
+ENV JAVA_DEBIAN_VERSION 8u66-b17-1~bpo8+1
 
 # see https://bugs.debian.org/775775
 # and https://github.com/docker-library/java/issues/19#issuecomment-70546872

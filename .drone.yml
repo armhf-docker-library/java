@@ -1,0 +1,15 @@
+publish:
+
+  docker:
+    file: "openjdk-8-jre/Dockerfile"
+    context: "openjdk-8-jre"
+    username: $$DOCKER_USER
+    email: $$DOCKER_EMAIL
+    password: $$DOCKER_PASSWORD
+    repo: armhfbuild/elasticsearch
+    tag:
+      - "latest"
+      - "openjdk-8-jre-8u66"
+      - "openjdk-8-jre"
+    force_tag: true
+    storage_driver: overlay
