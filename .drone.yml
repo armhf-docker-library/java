@@ -1,7 +1,7 @@
 matrix:
   VERSION:
     - "openjdk-8-jre-8u72"
-    - "openjdk-8-jre-8u66"
+    # - "openjdk-8-jre-8u66"
 
 publish:
   hub_openjdk-8-jre-8u72:
