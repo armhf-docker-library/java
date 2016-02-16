@@ -1,15 +1,46 @@
-publish:
+matrix:
+  VERSION:
+    - "openjdk-8-jre-8u72"
+    - "openjdk-8-jre-8u66"
 
-  docker:
-    file: "openjdk-8-jre/Dockerfile"
-    context: "openjdk-8-jre"
+publish:
+  hub_openjdk-8-jre-8u72:
+    image: armhfplugins/drone-docker
+    file: "$$VERSION/Dockerfile"
+    context: "$$VERSION"
     username: $$DOCKER_USER
     email: $$DOCKER_EMAIL
     password: $$DOCKER_PASSWORD
     repo: armhfbuild/java
-    tag:
-      - "latest"
-      - "openjdk-8-jre-8u66"
-      - "openjdk-8-jre"
     force_tag: true
     storage_driver: overlay
+    tag:
+      - "openjdk-8-jre-8u72"
+      - "openjdk-8-jre"
+      - "latest"
+    when:
+      matrix:
+          VERSION: "openjdk-8-jre-8u72"
+
+  hub_openjdk-8-jre-8u66:
+    image: armhfplugins/drone-docker
+    file: "$$VERSION/Dockerfile"
+    context: "$$VERSION"
+    username: $$DOCKER_USER
+    email: $$DOCKER_EMAIL
+    password: $$DOCKER_PASSWORD
+    repo: armhfbuild/java
+    force_tag: true
+    storage_driver: overlay
+    tag:
+      - "openjdk-8-jre-8u66"
+      - "openjdk-8-jre"
+      - "latest"
+    when:
+      matrix:
+          VERSION: "openjdk-8-jre-8u66"
+
+notify:
+  slack:
+    webhook_url: $$SLACK_WEBHOOK_URL
+    channel: armhf
